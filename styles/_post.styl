@@ -1,0 +1,33 @@
+> .this-post
+  flex()
+  > .gutter
+    flex-fixed()
+    flex-vertical()
+    flex-spaced()
+    > *
+      width: gutter-size
+      height: gutter-size
+    background-color: code-color
+  > .alley
+    flex-stretch()
+    padding-left: alley-inset
+
+.face
+  > img
+    width: 100%
+    height: 100%
+
+.toggle-button
+  background-color: code-color
+  &:hover:not(:disabled)
+    background-color: darken(code-color, 10%)
+  &:active:not(:disabled)
+    background-color: darken(code-color, 20%)
+
+.header
+  font: 10pt Helvetica
+  a
+    color: #888
+    text-decoration: none
+  a:hover
+    text-decoration: underline

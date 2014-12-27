@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+npm install
+
+node_modules/.bin/browserify \
+  --require mercury \
+  --require global \
+  --debug \
+  --outfile static/dev/vendor.js

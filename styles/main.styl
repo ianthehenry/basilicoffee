@@ -1,0 +1,157 @@
+@charset "UTF-8"
+
+button-color = #ccc
+line-height = 24px
+font = 16px 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif
+spacing = line-height * 0.5
+indent-size = spacing
+line-color = #ccc
+code-color = #eee
+text-color = #333
+alley-inset = spacing * 0.5
+highlight-color = #5af
+gutter-size = line-height
+
+@import "_helpers"
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  line-height: line-height
+
+h1, h2, h3, h4, h5, h6
+  line-height: 100%
+
+html
+  background-color: code-color
+
+body
+  max-width: 800px
+  margin: 0 auto
+  padding: line-height
+  padding-top: 0
+  word-wrap: break-word
+  @media screen and (max-width: 600px)
+    padding: line-height * 0.5
+    padding-top: 0
+
+body, textarea, input
+  color: text-color
+  font: font
+
+a
+  color: #07c
+  &:visited
+    color: #4a6b82
+
+.post
+  @import "_post"
+
+code
+  font: 13px Menlo, Consolas, monospace
+  background-color: code-color
+  padding: 0 0.2em
+
+.markdown
+  @import "_markdown"
+
+.children .children
+  guide-width = 2px
+  margin-left: (gutter-size - guide-width) * 0.5
+  padding-left: (gutter-size - guide-width) * 0.5 + alley-inset
+  border-left: solid guide-width #ddd
+
+.children
+  margin-top: indent-size 0
+  > .post:not(:first-child)
+    margin-top: spacing
+
+.post.expanded > .children
+  margin-top: 0.5em
+
+#main > div > .children
+  background-color: white
+  padding: indent-size
+
+header-height = line-height * 2
+
+status-size = 30px
+
+#header
+  height: header-height
+  flex()
+  .spacer
+    flex-stretch()
+  a
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  > *
+    line-height: header-height
+  > .nav-links
+    a
+      display: inline-block
+      line-height: header-height
+  > h1
+    font-weight: normal
+    font-size: 16pt
+    > a
+      padding: indent-size
+      display: block
+      color: text-color
+
+@import "_socket-status"
+@import "_add-post"
+
+button
+  -webkit-appearance: none
+  color: darken(line-color, 30%)
+  border: solid 1px line-color
+  outline: none
+  background-color: white
+  &:not(:disabled)
+    cursor: pointer
+  &:focus:not(:active):not(:disabled)
+    border-color: highlight-color
+    &:hover
+      border-color: darken(highlight-color, 10%)
+    &:active
+      border-color: darken(highlight-color, 20%)
+  &:hover:not(:disabled)
+    color: darken(line-color, 40%)
+    border-color: darken(line-color, 10%)
+    background-color: code-color
+  &:active:not(:disabled)
+    color: darken(line-color, 50%)
+    border-color: darken(line-color, 20%)
+    background-color: darken(code-color, 10%)
+
+@import "_loading"
+@import "_auth"
+
+textarea, input[type=text], input[type=email]
+  outline: none
+  border: solid 1px line-color
+  border-color: line-color
+  &:focus
+    border-color: highlight-color
+
+.attached-button
+  flex()
+  :first-child
+    flex-stretch()
+    border-right: none
+  button
+    background-color: #fff
+    font-size: 10pt
+    &::after
+      content: "→"
+    flex-fixed()
+
+#alert
+  display: block
+  color: text-color
+  text-decoration: none
+  background-color: #fd0
+  text-align: center

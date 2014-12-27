@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+node_modules/.bin/watchify \
+  --entry src/main.coffee \
+  --require ./conf/dev/conf.coffee:conf \
+  --external mercury \
+  --external global \
+  --extension .coffee \
+  --verbose \
+  --debug \
+  --transform coffeeify \
+  --outfile static/dev/app.js
