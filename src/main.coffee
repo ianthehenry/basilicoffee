@@ -2,7 +2,7 @@
 hg = require 'mercury'
 {h} = hg
 
-conf = require 'conf'
+conf = require '../conf/dev/conf.coffee'
 console.log conf
 
 render = (state) ->
