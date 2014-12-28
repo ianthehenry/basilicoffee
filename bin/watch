@@ -9,4 +9,7 @@ node_modules/.bin/watchify \
   --verbose \
   --debug \
   --transform coffeeify \
-  --outfile static/dev/app.js
+  --outfile static/dev/app.js \
+  &
+
+node_modules/.bin/brunch watch --server

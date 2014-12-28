@@ -12,13 +12,9 @@ Afterwards, run this command once (and again whenever dependencies change):
 
     $ bin/deps
 
-Start the CoffeeScript watcher/recompiler:
+Start the development server and live recompilers:
 
     $ bin/watch
-
-And in a different tab (as these both spawn long-running processes), start the stylus recompiler and static file server:
-
-    $ bin/brunch
 
 **Important**: if you change dependencies, you should edit `bin/deps` and `bin/watch` with the appropriate module names. I don't know how to make that automatic yet.
 
